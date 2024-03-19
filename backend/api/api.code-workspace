@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "../../../azure-resume/backend/api"
+		},
+		{
+			"name": "api",
+			"path": "."
+		}
+	],
+	"settings": {
+		"debug.internalConsoleOptions": "neverOpen"
+	}
+}
