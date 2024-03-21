@@ -35,6 +35,17 @@ jobs:
         pushd './${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}/api'
         dotnet build --configuration Release --output ./output
         popd
+        
+    - name: Retrieve publish profile for deployment
+      id: publishProfileRetrieval
+      run: |
+        publishProfiles=$(az webapp deployment list-publishing-profiles \
+        --name "GetResumeCounter" \
+        --resource-group "azureresume-rg" \
+        --subscription "2347be5e-15bf-4db5-9dba-e78be52bf53e" --xml)
+        echo "::add-mask::$publishProfiles"
+        echo "::set-output name=publishProfiles::$publishProfiles"      
+      
     - name: 'Run unit test'
       shell: pwsh
       run: |
