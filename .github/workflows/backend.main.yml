@@ -40,9 +40,9 @@ jobs:
       id: publishProfileRetrieval
       run: |
         publishProfiles=$(az webapp deployment list-publishing-profiles \
-        --name "GetResumeCounter" \
-        --resource-group "azureresume-rg" \
-        --subscription "2347be5e-15bf-4db5-9dba-e78be52bf53e" --xml)
+          --name "GetResumeCounter" \
+          --resource-group "azureresume-rg" \
+          --subscription "2347be5e-15bf-4db5-9dba-e78be52bf53e" --xml)
         echo "::add-mask::$publishProfiles"
         echo "::set-output name=publishProfiles::$publishProfiles"      
       
