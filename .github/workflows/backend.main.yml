@@ -17,10 +17,10 @@ jobs:
     steps:
     - name: 'Checkout GitHub Action'
       uses: actions/checkout@v3
-    - name: 'Login via Azure CLI'
-      uses: azure/login@v1
-      with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
+ ##   - name: 'Login via Azure CLI'
+ ##     uses: azure/login@v1
+ ##     with:
+ ##         creds: ${{ secrets.AZURE_CREDENTIALS }}
 
     - name: Setup DotNet ${{ env.DOTNET_VERSION }} Environment
       uses: actions/setup-dotnet@v3
@@ -46,3 +46,4 @@ jobs:
       with:
         app-name: ${{ env.AZURE_FUNCTIONAPP_NAME }}
         package: '${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}/api/output'
+        publish-profile: ${{ secrets.RESUMESECRET }}
